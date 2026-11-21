@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あなたのトリセツ鑑定書 お申し込み｜さっちゃん</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="四柱推命で読み解く「あなたのトリセツ鑑定書」のお申し込みページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2744; --navy-light:#2c3e6b; --gold:#c9a96e; --gold-light:#e8d5b0; --gold-pale:#faf5eb;
+    --cream:#fdfaf4; --text:#1a2744; --mid:#4a5568; --soft:#718096; --border:#e2d9c8; --err:#b5473a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--cream);line-height:1.8;}
+  .mincho{font-family:'Shippori Mincho',serif;}
+  header{text-align:center;padding:48px 20px 28px;background:linear-gradient(160deg,#f5f0e8 0%,#eae6f0 50%,#e8eef8 100%);}
+  header .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);background:var(--gold-pale);
+    font-size:12px;letter-spacing:.15em;padding:4px 16px;border-radius:50px;margin-bottom:14px;font-family:'Shippori Mincho',serif;}
+  header h1{font-family:'Shippori Mincho',serif;font-size:26px;line-height:1.5;}
+  header h1 span{color:var(--gold);}
+  header p{font-size:14px;color:var(--mid);margin-top:10px;}
+  .wrap{max-width:640px;margin:0 auto;padding:24px 16px 60px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px 20px;margin-bottom:22px;
+    box-shadow:0 4px 18px rgba(26,39,68,.05);}
+  .card h2{font-family:'Shippori Mincho',serif;font-size:19px;margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+  .card h2 .no{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+    background:var(--navy);color:#fff;font-size:14px;font-family:'Noto Sans JP',sans-serif;}
+  .lead{font-size:13px;color:var(--soft);margin-bottom:6px;}
+  label.q{display:block;font-weight:700;font-size:15px;margin:20px 0 6px;}
+  .req,.opt{font-size:11px;font-weight:500;margin-left:8px;padding:1px 8px;border-radius:50px;vertical-align:2px;}
+  .req{background:var(--navy);color:#fff;}
+  .opt{background:#eef0f4;color:var(--soft);}
+  .note{font-size:12px;color:var(--soft);margin:-2px 0 8px;}
+  input[type=text],input[type=email],input[type=date],input[type=time],select,textarea{
+    width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--text);}
+  textarea{min-height:110px;resize:vertical;}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold-light);border-color:var(--gold);}
+  .seg{display:flex;gap:10px;}
+  .seg button{flex:1;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip,.seg button{font:inherit;font-size:14px;padding:9px 14px;border:1px solid var(--border);border-radius:50px;background:#fff;
+    color:var(--mid);cursor:pointer;}
+  .chip.on,.seg button.on{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .chip:disabled{opacity:.45;cursor:default;}
+  .count{font-size:12px;color:var(--gold);margin-left:6px;font-weight:500;}
+  .person{border:1px solid var(--gold-light);border-radius:16px;padding:20px 16px;margin-top:18px;background:var(--gold-pale);}
+  .person .head{display:flex;justify-content:space-between;align-items:center;}
+  .person .head b{font-family:'Shippori Mincho',serif;font-size:17px;}
+  .person .rm{font:inherit;font-size:12px;color:var(--soft);background:none;border:none;text-decoration:underline;cursor:pointer;}
+  .person input,.person select,.person textarea,.person .chip{background:#fff;}
+  .sub{margin-top:18px;padding-top:4px;border-top:1px dashed var(--gold-light);}
+  .sub .t{font-size:13px;color:var(--gold);font-weight:700;margin-top:14px;}
+  .timeRow{display:flex;gap:12px;align-items:center;}
+  .timeRow input{flex:1;}
+  .timeRow label{font-size:13px;color:var(--mid);white-space:nowrap;display:flex;align-items:center;gap:6px;}
+  .add{display:block;width:100%;margin-top:16px;font:inherit;font-size:15px;padding:14px;border:1.5px dashed var(--gold);
+    border-radius:14px;background:#fff;color:var(--navy);cursor:pointer;}
+  .fam{margin-top:6px;}
+  .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer;margin-top:10px;}
+  .check input{width:20px;height:20px;margin-top:3px;flex:0 0 auto;accent-color:var(--navy);}
+  .total{display:flex;justify-content:space-between;align-items:baseline;background:var(--gold-pale);border-radius:14px;
+    padding:16px 18px;margin-top:6px;}
+  .total b{font-size:26px;font-family:'Shippori Mincho',serif;}
+  .total small{font-size:12px;color:var(--soft);}
+  .confirm{font-size:13px;color:var(--mid);background:#f7f8fa;border-radius:12px;padding:14px 16px;margin-top:18px;}
+  .confirm li{margin-left:18px;}
+  .btn{display:block;width:100%;font:inherit;font-size:17px;font-weight:700;letter-spacing:.06em;padding:17px;border:none;
+    border-radius:50px;background:var(--gold);color:var(--navy);cursor:pointer;margin-top:22px;box-shadow:0 4px 18px rgba(201,169,110,.35);}
+  .btn:disabled{opacity:.6;cursor:default;}
+  .msg{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:14px;background:#fbeeec;color:var(--err);}
+  .done{text-align:center;}
+  .done .mark{font-size:40px;color:var(--gold);}
+  .done h2{justify-content:center;font-size:22px;margin:6px 0 10px;}
+  .done p{font-size:14px;color:var(--mid);}
+  .done .box{background:var(--gold-pale);border-radius:14px;padding:16px;margin:18px 0;text-align:left;font-size:14px;}
+  .hide{display:none !important;}
+  footer{text-align:center;font-size:12px;color:var(--soft);padding:0 20px 40px;}
+  footer a{color:var(--soft);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">ORDER FORM</div>
+  <h1>あなたの<span>トリセツ鑑定書</span><br>お申し込み</h1>
+  <p>おひとり 5,500円（税込）／PDF 16ページ<br>このページで送っても、まだお支払いは発生しません</p>
+</header>
+
+<div class="wrap" id="formArea">
+
+  <!-- 1. お申込者 -->
+  <section class="card">
+    <h2><span class="no">1</span>お申込者さまのこと</h2>
+    <label class="q">お名前<span class="req">必須</span></label>
+    <div class="note">お振り込みのお名前と合わせて確認します。本名でお願いします</div>
+    <input type="text" id="name" autocomplete="name" placeholder="髙橋 さつき">
+
+    <label class="q">メールアドレス<span class="req">必須</span></label>
+    <div class="note">お支払いのご案内と、鑑定書をここにお送りします</div>
+    <input type="email" id="email" autocomplete="email" inputmode="email" placeholder="satsuki@example.com">
+
+    <label class="q">SNSのアカウント名<span class="opt">任意</span></label>
+    <div class="note">メールが届かないときの連絡用です（例：Instagram satchan_cocoro）</div>
+    <input type="text" id="sns">
+  </section>
+
+  <!-- 2. 鑑定を受ける方 -->
+  <section class="card">
+    <h2><span class="no">2</span>鑑定を受ける方</h2>
+    <p class="lead">家族の分もまとめて申し込めます。下の「＋もう1人追加」から増やしてください。</p>
+    <div id="people"></div>
+    <button type="button" class="add" id="addBtn">＋ もう1人追加する</button>
+  </section>
+
+  <!-- 3. 鑑定書の雰囲気 -->
+  <section class="card">
+    <h2><span class="no">3</span>鑑定書の雰囲気</h2>
+    <label class="q">近いものを1つ選んでください<span class="opt">任意</span></label>
+    <div class="note">家族の分もまとめて申し込む場合は、全員この雰囲気でお作りします</div>
+    <div class="chips" id="tone"></div>
+  </section>
+
+  <!-- 4. 家族全員（2人以上のときだけ出る） -->
+  <section class="card hide" id="famCard">
+    <h2><span class="no">4</span>家族全員でのお申し込みですか？</h2>
+    <p class="lead">家族全員分のお申し込みには、家族の違いがひと目でわかる比較資料「わが家のトリセツ」をプレゼントしています🎁</p>
+    <label class="check"><input type="checkbox" id="family"><span>はい、家族全員分の申し込みです</span></label>
+    <div class="fam hide" id="famBox">
+      <label class="q">家族鑑定で特に知りたいこと<span class="opt">任意・いくつでも</span></label>
+      <div class="chips" id="famWant"></div>
+      <label class="q">特に関係性を見てほしい組み合わせ<span class="opt">任意</span></label>
+      <div class="note">例：私と長男、夫と次男 など</div>
+      <textarea id="famPair" style="min-height:70px"></textarea>
+      <label class="q">今、家族の中で気になっていること<span class="opt">任意</span></label>
+      <textarea id="famWorry"></textarea>
+      <label class="q">家族として、これからどんな関係になっていきたいですか？<span class="opt">任意</span></label>
+      <textarea id="famFuture"></textarea>
+    </div>
+  </section>
+
+  <!-- 5. お支払い -->
+  <section class="card">
+    <h2><span class="no" id="payNo">4</span>お支払いと確認</h2>
+    <div class="total"><span>合計 <small id="totalNote">（1名）</small></span><span><b id="total">5,500</b>円<small>（税込）</small></span></div>
+
+    <label class="q">ご希望のお支払い方法<span class="req">必須</span></label>
+    <div class="note">正式なご案内は、内容を確認したあとメールでお送りします</div>
+    <div class="seg" id="pay">
+      <button type="button" data-v="銀行振込">銀行振込</button>
+      <button type="button" data-v="クレジットカード（PayPal）">クレジットカード（PayPal）</button>
+    </div>
+
+    <div class="confirm">
+      <b>お申し込みの前に</b>
+      <ul>
+        <li>このページで送っても、まだお支払いは発生しません。合計金額とお支払い方法は、内容を確認したあとメールでご案内します</li>
+        <li>生まれた時間がわからない場合は、一部読み取れない項目があります</li>
+        <li>鑑定書は、医療・法律・投資などの専門的な判断の代わりではなく、自分や家族を理解して、これからの行動を考えるための参考としてお受け取りください</li>
+        <li>海外で生まれた方は、いまは受付していません</li>
+      </ul>
+    </div>
+    <label class="check"><input type="checkbox" id="agree"><span>上の内容と<a href="https://satchan-cocoro.github.io/gw-present/legal.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a>を確認し、入力内容に間違いがないことを確かめました</span></label>
+
+    <button type="button" class="btn" id="submitBtn">この内容で申し込む</button>
+    <div id="msg"></div>
+  </section>
+</div>
+
+<!-- 完了 -->
+<div class="wrap hide" id="doneArea">
+  <section class="card done">
+    <div class="mark">♡</div>
+    <h2 class="mincho">お申し込みを受け付けました！</h2>
+    <p>ありがとうございます。<br>入力していただいたメールアドレスに、受付の控えをお送りしました。</p>
+    <div class="box">
+      <b>このあとの流れ</b><br>
+      1. さっちゃんが内容を確認して、お支払いのご案内をメールでお送りします<br>
+      2. お支払いをお願いします<br>
+      3. ご入金を確認したら、5〜7営業日でPDFの鑑定書をお届けします
+      <p style="margin-top:10px">受付番号：<b id="doneId"></b>／合計：<b id="doneTotal"></b></p>
+    </div>
+    <p style="font-size:13px">控えのメールが届かないときは、迷惑メールフォルダもご確認ください。</p>
+    <p style="margin-top:20px"><a href="../" style="color:var(--navy)">トリセツ鑑定書のページに戻る</a></p>
+  </section>
+</div>
+
+<footer>
+  さっちゃん／髙橋さつき（公認心理師）<br>
+  <a href="https://satchan-cocoro.github.io/gw-present/legal.html" target="_blank" rel="noopener">特定商取引法に基づく表記・プライバシーポリシー</a>
+</footer>
+
+<script>
+/* 受け取り先（エニアグラム予約と同じGASのウェブアプリ） */
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwIkp0d2L1W0BNilnNdWJIPYIylyg5YEdqcDI441WnePlP-HPuN6ffZBFqWIr0-bIfNeQ/exec';
+const PRICE = 5500, MAX_PEOPLE = 6;
+
+const OPT = {
+  relation: ['本人','夫','妻','子ども','父','母','きょうだい','その他'],
+  gender: ['女性','男性','その他／回答しない'],
+  pref: ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'],
+  state: ['自分に自信が持てない','人に振り回されやすい','頑張っているのに結果が出ない','人間関係に疲れている','子育てに悩んでいる','転職・働き方に悩んでいる','自分らしく生きたい','何が向いているかわからない','新しい挑戦をしたい','生きづらさを感じている','本当の自分を知りたい','将来に不安がある','家族との関係に悩んでいる','パートナーとの関係に悩んでいる'],
+  future: ['自分らしく生きたい','自信を持ちたい','行動できるようになりたい','人間関係をラクにしたい','自分の才能を活かしたい','好きなことを仕事にしたい','家族を大切にしたい','心を安定させたい','人生の方向性を整理したい','自立したい','前向きになりたい','子どもとの関わり方を見直したい','自分の強みを知りたい','恋愛・結婚をうまくいかせたい'],
+  want: ['自分自身の性格・才能','向いている職業・適性','対人関係・コミュニケーション','人生の運気について','恋愛・結婚について','どんな人と交流すればいいか'],
+  childWant: ['性格・才能','学習スタイル・適性','コミュニケーション特性','将来の可能性・向いている職業','親子関係の傾向とアドバイス'],
+  tone: ['優しく寄り添ってほしい','背中を押してほしい','ハッキリ現実を知りたい','前向きになれる内容がいい','自分を肯定できる内容がいい','厳しめでも本音が知りたい','人生を整理したい','希望が持てる内容がいい'],
+  famWant: ['夫婦の関わり方','親子の関わり方','きょうだいの違い','家族全体のバランス','子どもへの声かけ','家族内で起こりやすいすれ違い','それぞれの役割や才能','家族の中で負担が偏りやすいところ']
+};
+
+const $ = function(id){ return document.getElementById(id); };
+const esc = function(s){ return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+const yen = function(n){ return Number(n).toLocaleString('ja-JP'); };
+const FROM = (new URLSearchParams(location.search).get('from') || '').slice(0,32);
+let seq = 0;
+
+/* チップ（複数選択・上限つき） */
+function chips(box, list, max){
+  box.innerHTML = '';
+  box.dataset.max = max || 99;
+  list.forEach(function(v){
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.textContent = v; b.dataset.v = v;
+    b.onclick = function(){
+      if (Number(box.dataset.max) === 1) {
+        const was = b.classList.contains('on');
+        box.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('on'); });
+        if (!was) b.classList.add('on');
+      } else {
+        b.classList.toggle('on');
+      }
+      limit(box);
+    };
+    box.appendChild(b);
+  });
+}
+function limit(box){
+  const max = Number(box.dataset.max);
+  if (max <= 1) return;
+  const on = box.querySelectorAll('.chip.on').length;
+  box.querySelectorAll('.chip').forEach(function(x){ x.disabled = on >= max && !x.classList.contains('on'); });
+  const c = box.parentNode.querySelector('.count[data-for="'+box.id+'"]');
+  if (c) c.textContent = on + '/' + max;
+}
+function picked(box){
+  return Array.prototype.map.call(box.querySelectorAll('.chip.on'), function(x){ return x.dataset.v; });
+}
+function options(list, first){
+  return '<option value="">' + (first || '選んでください') + '</option>' +
+    list.map(function(o){ return '<option>' + esc(o) + '</option>'; }).join('');
+}
+
+/* 1人分の入力欄 */
+function addPerson(){
+  const n = document.querySelectorAll('.person').length;
+  if (n >= MAX_PEOPLE) return;
+  const k = ++seq;
+  const el = document.createElement('div');
+  el.className = 'person'; el.dataset.k = k;
+  el.innerHTML =
+    '<div class="head"><b class="ttl"></b><button type="button" class="rm">この人を消す</button></div>' +
+    '<label class="q">大人ですか？子どもですか？<span class="req">必須</span></label>' +
+    '<div class="seg kind"><button type="button" data-v="大人">大人</button><button type="button" data-v="子ども">子ども</button></div>' +
+    '<label class="q">鑑定書に書くお名前<span class="req">必須</span></label>' +
+    '<div class="note">ニックネームでもOKです。お子さまは「○○くん」「○○ちゃん」と書きます</div>' +
+    '<input type="text" class="pname">' +
+    '<label class="q">お申込者さまとの関係<span class="req">必須</span></label>' +
+    '<select class="rel">' + options(OPT.relation) + '</select>' +
+    '<label class="q">性別<span class="req">必須</span></label>' +
+    '<select class="gender">' + options(OPT.gender) + '</select>' +
+    '<label class="q">生年月日<span class="req">必須</span></label>' +
+    '<input type="date" class="bday" min="1920-01-01">' +
+    '<label class="q">生まれた時間<span class="opt">わかれば</span></label>' +
+    '<div class="note">母子手帳に書いてある時間でOKです</div>' +
+    '<div class="timeRow"><input type="time" class="btime"><label><input type="checkbox" class="unknown">わからない</label></div>' +
+    '<label class="q">生まれた都道府県<span class="req">必須</span></label>' +
+    '<select class="pref">' + options(OPT.pref) + '</select>' +
+    '<div class="sub adult hide">' +
+      '<div class="t">ここからは、大人の方への質問です</div>' +
+      '<label class="q">① 今のあなたに近い状態<span class="req">必須</span><span class="count" data-for="st'+k+'"></span></label>' +
+      '<div class="note">3つまで選べます</div><div class="chips" id="st'+k+'"></div>' +
+      '<label class="q">② 鑑定書を読んだあと、どんな自分になりたいですか？<span class="req">必須</span><span class="count" data-for="fu'+k+'"></span></label>' +
+      '<div class="note">3つまで選べます</div><div class="chips" id="fu'+k+'"></div>' +
+      '<label class="q">③ 特に知りたいこと<span class="req">必須</span><span class="count" data-for="wa'+k+'"></span></label>' +
+      '<div class="note">3つまで選べます</div><div class="chips" id="wa'+k+'"></div>' +
+      '<label class="q">④ 鑑定で相談したいこと<span class="opt">任意</span></label>' +
+      '<div class="note">「これが知りたい！」「ここに悩んでいる！」に直接お答えします。遠慮なくどうぞ</div>' +
+      '<textarea class="consult"></textarea>' +
+    '</div>' +
+    '<div class="sub child hide">' +
+      '<div class="t">ここからは、お子さまについての質問です</div>' +
+      '<label class="q">❶ 特に知りたいこと<span class="req">必須</span><span class="count" data-for="cw'+k+'"></span></label>' +
+      '<div class="note">3つまで選べます</div><div class="chips" id="cw'+k+'"></div>' +
+      '<label class="q">❷ お子さまのことでのお悩み<span class="opt">任意</span></label>' +
+      '<textarea class="cworry"></textarea>' +
+    '</div>';
+  $('people').appendChild(el);
+  chips($('st'+k), OPT.state, 3); chips($('fu'+k), OPT.future, 3);
+  chips($('wa'+k), OPT.want, 3); chips($('cw'+k), OPT.childWant, 3);
+  ['st','fu','wa','cw'].forEach(function(p){ limit($(p+k)); });
+
+  el.querySelectorAll('.kind button').forEach(function(b){
+    b.onclick = function(){
+      el.querySelectorAll('.kind button').forEach(function(x){ x.classList.toggle('on', x === b); });
+      el.dataset.kind = b.dataset.v;
+      el.querySelector('.adult').classList.toggle('hide', b.dataset.v !== '大人');
+      el.querySelector('.child').classList.toggle('hide', b.dataset.v !== '子ども');
+    };
+  });
+  el.querySelector('.unknown').onchange = function(e){
+    const t = el.querySelector('.btime'); t.disabled = e.target.checked; if (e.target.checked) t.value = '';
+  };
+  el.querySelector('.rm').onclick = function(){ el.remove(); refresh(); };
+  if (n === 0) el.querySelector('.rel').value = '本人';
+  refresh();
+  if (n > 0) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function refresh(){
+  const ps = document.querySelectorAll('.person');
+  ps.forEach(function(el, i){
+    el.querySelector('.ttl').textContent = (i + 1) + '人目';
+    el.querySelector('.rm').classList.toggle('hide', ps.length === 1);
+  });
+  $('addBtn').classList.toggle('hide', ps.length >= MAX_PEOPLE);
+  const multi = ps.length >= 2;
+  $('famCard').classList.toggle('hide', !multi);
+  $('payNo').textContent = multi ? '5' : '4';
+  $('total').textContent = yen(ps.length * PRICE);
+  $('totalNote').textContent = '（' + ps.length + '名 × ' + yen(PRICE) + '円）';
+}
+
+/* 送信 */
+function fail(text, el){
+  $('msg').innerHTML = '<div class="msg">' + esc(text) + '</div>';
+  if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
+  return false;
+}
+
+function collect(){
+  const d = {
+    action: 'kantei', from: FROM,
+    name: $('name').value.trim(), email: $('email').value.trim(), sns: $('sns').value.trim(),
+    tone: picked($('tone'))[0] || '',
+    family: !$('famCard').classList.contains('hide') && $('family').checked,
+    famWant: picked($('famWant')), famPair: $('famPair').value.trim(),
+    famWorry: $('famWorry').value.trim(), famFuture: $('famFuture').value.trim(),
+    pay: $('pay').querySelector('.on') ? $('pay').querySelector('.on').dataset.v : '',
+    agree: $('agree').checked, people: []
+  };
+  if (!d.name) return fail('お申込者さまのお名前を入力してください', $('name'));
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) return fail('メールアドレスの形式をご確認ください', $('email'));
+
+  const ps = document.querySelectorAll('.person');
+  for (let i = 0; i < ps.length; i++) {
+    const el = ps[i], k = el.dataset.k, who = (i + 1) + '人目の';
+    const p = {
+      kind: el.dataset.kind || '',
+      name: el.querySelector('.pname').value.trim(),
+      relation: el.querySelector('.rel').value,
+      gender: el.querySelector('.gender').value,
+      birthday: el.querySelector('.bday').value,
+      birthtime: el.querySelector('.unknown').checked ? '' : el.querySelector('.btime').value,
+      birthpref: el.querySelector('.pref').value,
+      state: picked($('st'+k)), future: picked($('fu'+k)), want: picked($('wa'+k)),
+      consult: el.querySelector('.consult').value.trim(),
+      childWant: picked($('cw'+k)), childWorry: el.querySelector('.cworry').value.trim()
+    };
+    if (!p.kind) return fail(who + '「大人・子ども」を選んでください', el);
+    if (!p.name) return fail(who + 'お名前を入力してください', el.querySelector('.pname'));
+    if (!p.relation) return fail(who + 'お申込者さまとの関係を選んでください', el.querySelector('.rel'));
+    if (!p.gender) return fail(who + '性別を選んでください', el.querySelector('.gender'));
+    if (!p.birthday) return fail(who + '生年月日を入力してください', el.querySelector('.bday'));
+    if (!p.birthtime && !el.querySelector('.unknown').checked) return fail(who + '生まれた時間を入力するか、「わからない」にチェックしてください', el.querySelector('.btime'));
+    if (!p.birthpref) return fail(who + '生まれた都道府県を選んでください', el.querySelector('.pref'));
+    if (p.kind === '大人') {
+      if (!p.state.length) return fail(who + '「① 今の状態」を1つ以上選んでください', $('st'+k));
+      if (!p.future.length) return fail(who + '「② なりたい自分」を1つ以上選んでください', $('fu'+k));
+      if (!p.want.length) return fail(who + '「③ 特に知りたいこと」を1つ以上選んでください', $('wa'+k));
+      p.childWant = []; p.childWorry = '';
+    } else {
+      if (!p.childWant.length) return fail(who + '「❶ 特に知りたいこと」を1つ以上選んでください', $('cw'+k));
+      p.state = []; p.future = []; p.want = []; p.consult = '';
+    }
+    d.people.push(p);
+  }
+  if (!d.pay) return fail('ご希望のお支払い方法を選んでください', $('pay'));
+  if (!d.agree) return fail('確認事項のチェックをお願いします', $('agree'));
+  return d;
+}
+
+let sending = false;
+$('submitBtn').onclick = function(){
+  if (sending) return;
+  $('msg').innerHTML = '';
+  const d = collect();
+  if (!d) return;
+  sending = true;
+  const btn = $('submitBtn');
+  btn.disabled = true; btn.textContent = '送信しています…';
+  fetch(GAS_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d) })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      sending = false; btn.disabled = false; btn.textContent = 'この内容で申し込む';
+      if (!res.ok) return fail(res.error || '送信できませんでした');
+      $('doneId').textContent = res.id;
+      $('doneTotal').textContent = yen(res.total) + '円（' + res.count + '名・税込）';
+      $('formArea').classList.add('hide'); $('doneArea').classList.remove('hide');
+      window.scrollTo({top:0, behavior:'smooth'});
+    })
+    .catch(function(err){
+      sending = false; btn.disabled = false; btn.textContent = 'この内容で申し込む';
+      fail('送信できませんでした。通信環境を確かめて、もう一度お試しください。（' + err.message + '）');
+    });
+};
+
+/* 起動 */
+$('pay').querySelectorAll('button').forEach(function(b){
+  b.onclick = function(){ $('pay').querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); };
+});
+$('family').onchange = function(e){ $('famBox').classList.toggle('hide', !e.target.checked); };
+chips($('tone'), OPT.tone, 1);
+chips($('famWant'), OPT.famWant, 99);
+$('addBtn').onclick = addPerson;
+addPerson();
+</script>
+</body>
+</html>
